@@ -11,4 +11,7 @@ python-dotenv
 pydantic
 pytest
 ruff
-pre-commit
+pre-commitblack
+db-dtypes
+google-cloud-bigquery
+pandas-gbq

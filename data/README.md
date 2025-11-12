@@ -1,10 +1,11 @@
+# Data Area Contracts
 
-# Data folder contract
-- raw/: immutable source files (Olist, SECOM, external). Never edit by hand.
-- external/: third-party or reference data (e.g., holidays/FX tables).
-- interim/: temporary, stepwise outputs during cleaning/feature steps.
-- processed/: analysis-ready tables for notebooks/dashboards.
+- **raw/**: Original sources (Olist, SECOM). No edits. Include source link + checksum if possible.
+- **external/**: Third-party or reference data (e.g., product catalog codes).
+- **interim/**: Staged outputs from cleaning/joins; reproducible from code.
+- **processed/**: Final, analysis-ready tables that dashboards/models consume.
+
 Conventions:
-- CSVs: UTF-8, headers, lower_snake_case columns.
-- Dates: ISO 8601 (YYYY-MM-DD), timestamps in UTC.
-- IDs: stable primary keys, never reused; no leading zeros stripped.
+- CSVs UTF-8, comma-delimited, headers present.
+- Dates ISO-8601; times in UTC unless stated.
+- One table = one file unless partitioned by date.
