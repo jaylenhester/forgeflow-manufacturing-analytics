@@ -1,7 +1,0 @@
-/data/raw/
-/data/interim/
-/data/processed/
-/data/external/
-.ipynb_checkpoints/
-.env
-*.twbx
