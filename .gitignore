@@ -10,10 +10,12 @@ __pycache__/
 data/raw/*
 data/processed/*
 data/synthetic/*
+data/external/*
 !data/.keep
 !data/raw/.keep
 !data/processed/.keep
 !data/synthetic/.keep
+!data/external/.keep
 # VSCode
 .vscode/*
 # OS
