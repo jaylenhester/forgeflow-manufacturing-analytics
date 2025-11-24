@@ -6,6 +6,8 @@ from sklearn.metrics import f1_score, roc_auc_score
 from sklearn.model_selection import train_test_split
 
 
+# src/forgeflow/model.py
+
 def train_quality_classifier(
     df: pd.DataFrame,
     target: str,
@@ -38,12 +40,15 @@ def train_quality_classifier(
     clf.fit(X_train, y_train)
 
     preds = clf.predict(X_test)
-    metrics: Dict[str, float] = {"f1": f1_score(y_test, preds)}
+    
+    # FIX: Cast numpy types to python float to satisfy Type Checker
+    metrics: Dict[str, float] = {"f1": float(f1_score(y_test, preds))}
 
     if hasattr(clf, "predict_proba"):
         probas = clf.predict_proba(X_test)[:, 1]
         try:
-            metrics["roc_auc"] = roc_auc_score(y_test, probas)
+            # FIX: Cast numpy types to python float
+            metrics["roc_auc"] = float(roc_auc_score(y_test, probas))
         except Exception:
             # e.g., if test split has only one class
             pass
